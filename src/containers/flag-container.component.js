@@ -4,10 +4,6 @@ import CountryFlagList from '../presentational/flag-list.component';
 import { getCountries, searchCountries, deleteCountry } from '../actions/actions-countries';
 
 class CountryFlagContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.dispatch(getCountries());
         this.props.dispatch(searchCountries(''));
@@ -24,8 +20,8 @@ class CountryFlagContainer extends Component {
     render() {
         return (
             <div>
-                <div className="search text-center">
-                    <input type="text" onChange={this.search.bind(this)} />
+                <div className='search text-center'>
+                    <input type='text' placeholder='Please enter country name...' onChange={this.search.bind(this)} />
                 </div>
                 <CountryFlagList countries={this.props.visibleCountries} deleteCountry={this.deleteCountry.bind(this)} />
             </div>
